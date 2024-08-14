@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "delhivery-express-api-doc",
+      "source": "@delhivery-express-api-doc/v3#13xpyaipyl1bobfr6",
+      "integrity": "sha512-DWDMLYzRs2CiYdtw1elP/5jYqOVE4E5DyXbxrcmW7UEjaBia8OsA6TpWVSTciZoCmrZDM+Y4/XXvEmwQcG8dQg==",
+      "installerVersion": "6.1.1"
+    }
+  ]
+}

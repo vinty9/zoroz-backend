@@ -1,0 +1,603 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Warehouse Management API",
+    "version": "unknown"
+  },
+  "servers": [
+    {
+      "url": "https://staging-express.delhivery.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "sec0": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "api_key"
+      }
+    }
+  },
+  "security": [
+    {
+      "sec0": []
+    }
+  ],
+  "paths": {
+    "/api/backend/clientwarehouse/create/": {
+      "post": {
+        "summary": "/test/:create-warehouse",
+        "description": "",
+        "operationId": "testinput-2",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Token XXXXXXXXXXXXXX",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "This is the format in which data is being sent (JSON is recommended)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "application/json",
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "phone",
+                  "city",
+                  "name",
+                  "pin",
+                  "address",
+                  "country",
+                  "email",
+                  "registered_name",
+                  "return_address",
+                  "return_pin",
+                  "return_city",
+                  "return_state",
+                  "return_country"
+                ],
+                "properties": {
+                  "phone": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Associated phone number in Numeric or in Masking format with the warehouse</p>",
+                    "default": "mandatory"
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">City of the pickup location</p>",
+                    "default": "mandatory"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Name of the warehouse with which the warehouse gets created in delhivery system</p>",
+                    "default": "mandatory"
+                  },
+                  "pin": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Pin code of the pickup location</p>",
+                    "default": "mandatory"
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Associated pickup location address</p>",
+                    "default": "mandatory"
+                  },
+                  "country": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Country associated</p>",
+                    "default": "optional"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Associated email address</p>",
+                    "default": "mandatory"
+                  },
+                  "registered_name": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Ideally this name should be same as the name mentioned in the above field</p>",
+                    "default": "Mandatory"
+                  },
+                  "return_address": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Address where shipment need to be returned</p>",
+                    "default": "Mandatory"
+                  },
+                  "return_pin": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Return Pin Code</p>",
+                    "default": "Mandatory"
+                  },
+                  "return_city": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">City where shipment need to be returned</p>",
+                    "default": "Mandatory"
+                  },
+                  "return_state": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">State of the Return location</p>",
+                    "default": "Mandatory"
+                  },
+                  "return_country": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Country where shipment need to be returned</p>",
+                    "default": "Mandatory"
+                  }
+                }
+              },
+              "examples": {
+                "Sample payload for warehouse creation": {
+                  "value": {
+                    "phone": "phone no.",
+                    "city": "Kota",
+                    "name": "warehouse name",
+                    "pin": "324005",
+                    "address": "address",
+                    "country": "India",
+                    "email": "abc@gmail.com",
+                    "registered_name": "registered username",
+                    "return_address": "return_address",
+                    "return_pin": "return_pin",
+                    "return_city": "return_city",
+                    "return_state": "return_state",
+                    "return_country": "return_country"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n    \"data\": {\n        \"working_hours\": null,\n        \"name\": \"warehouse name\",\n        \"pincode\": 324005,\n        \"type_of_clientwarehouse\": null,\n        \"phone\": \"phone no.\",\n        \"client\": \"Client name\",\n        \"address\": \"address\",\n        \"active\": true,\n        \"message\": \"A new client warehouse has been created in HQ(Delhivery).\",\n        \"largest_vehicle_constraint\": null\n    },\n    \"success\": true,\n    \"error\": \"\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "working_hours": {},
+                        "name": {
+                          "type": "string",
+                          "example": "warehouse name"
+                        },
+                        "pincode": {
+                          "type": "integer",
+                          "example": 324005,
+                          "default": 0
+                        },
+                        "type_of_clientwarehouse": {},
+                        "phone": {
+                          "type": "string",
+                          "example": "phone no."
+                        },
+                        "client": {
+                          "type": "string",
+                          "example": "Client name"
+                        },
+                        "address": {
+                          "type": "string",
+                          "example": "address"
+                        },
+                        "active": {
+                          "type": "boolean",
+                          "example": true,
+                          "default": true
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "A new client warehouse has been created in HQ(Delhivery)."
+                        },
+                        "largest_vehicle_constraint": {}
+                      }
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true,
+                      "default": true
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"data\": {\n    \"name\": \"xxxxxxxxxxx\"\n  },\n  \"success\": false,\n  \"error\": \"Pincode doesn't exist in system\"\n}"
+                  }
+                },
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "xxxxxxxxxxx"
+                            }
+                          }
+                        },
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "Registered Name should not contain '_' underscore."
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "xxxxxxxxxxx"
+                            }
+                          }
+                        },
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "Phone number should be Integer"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "xxxxxxxxxxx"
+                            }
+                          }
+                        },
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "Pincode doesn't exist in system"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/backend/clientwarehouse/edit/": {
+      "post": {
+        "summary": "/test/:edit-warehouse",
+        "description": "",
+        "operationId": "testinput-6",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">This is the API Key, refer to the Authentication section to get a valid token or use a different validation method.</p>",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "Token api-token-key"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">This is the format in which data is being sent (json is recommended)</p>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "pin"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Registered warehouse name in our system</p>"
+                  },
+                  "registered_name": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Registered warehouse name in our system</p>"
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Registered address of the warehouse in our system</p>"
+                  },
+                  "pin": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Registered pincode of the warehouse in our system</p>"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "<p style=\"font-size:15px;font-family:Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;color: #001a00;text-align:justify;\">Registered pincode for the warehouse in our system</p>"
+                  }
+                }
+              },
+              "examples": {
+                "Sample Payload code for Edit Warehouse": {
+                  "value": {
+                    "name": "clwh-name",
+                    "registered_name": "name",
+                    "address": "123, sector 40 Gurgaon",
+                    "pin": "456010",
+                    "phone": "8888888888"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"data\": {\n    \"phone\": 3242526423737,\n    \"working_hours\": {},\n    \"name\": \"myWH1234\",\n    \"address\": \"kanpur\",\n    \"active\": true,\n    \"message\": \"client warehouse has been updated in HQ(Delhivery).\",\n    \"largest_vehicle_constraint\": null,\n    \"pincode\": 122413,\n    \"type_of_clientwarehouse\": null\n  },\n  \"success\": true,\n  \"error\": \"\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "phone": {
+                          "type": "integer",
+                          "example": 3242526423737,
+                          "default": 0
+                        },
+                        "working_hours": {
+                          "type": "object",
+                          "properties": {}
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "myWH1234"
+                        },
+                        "address": {
+                          "type": "string",
+                          "example": "kanpur"
+                        },
+                        "active": {
+                          "type": "boolean",
+                          "example": true,
+                          "default": true
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "client warehouse has been updated in HQ(Delhivery)."
+                        },
+                        "largest_vehicle_constraint": {},
+                        "pincode": {
+                          "type": "integer",
+                          "example": 122413,
+                          "default": 0
+                        },
+                        "type_of_clientwarehouse": {}
+                      }
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "example": true,
+                      "default": true
+                    },
+                    "error": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"data\": {\n    \"name\": \"xxxxxxxxxxx\"\n  },\n  \"success\": false,\n  \"error\": \"Pincode doesn't exist in system\"\n}"
+                  }
+                },
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "myWH123"
+                            }
+                          }
+                        },
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "ClientWarehouse 'myWH123' doesn't exist"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "xxxxxxxxxxx"
+                            }
+                          }
+                        },
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "Registered Name should not contain '_' underscore."
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "xxxxxxxxxxx"
+                            }
+                          }
+                        },
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "Phone number should be Integer"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "xxxxxxxxxxx"
+                            }
+                          }
+                        },
+                        "success": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        },
+                        "error": {
+                          "type": "string",
+                          "example": "Pincode doesn't exist in system"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "415",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"detail\": \"Unsupported media type 'xml' in request.\"\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "Unsupported media type 'xml' in request."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    }
+  },
+  "x-readme": {
+    "headers": []
+  },
+  "x-readme-fauxas": true
+}
